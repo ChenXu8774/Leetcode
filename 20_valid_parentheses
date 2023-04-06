@@ -1,0 +1,34 @@
+class Solution {
+    // SC: O(n), TC: O(n)
+    public boolean isValid(String s) {
+        if (s.length() % 2 == 1) {
+            return false;
+        }
+        Deque<Character> stack = new ArrayDeque<>();
+        for (char ch : s.toCharArray()) {
+            if (ch == '(' || ch == '[' ||ch == '{') {
+                stack.offerLast(ch);
+            }
+            else if (ch == ')') {
+                // First check stack is empty or not, then peekLast()
+                if (stack.isEmpty() || stack.peekLast() != '(') {
+                    return false;
+                }
+                stack.pollLast();
+            }
+            else if (ch == ']') {
+                if (stack.isEmpty() || stack.peekLast() != '[') {
+                    return false;
+                }
+                stack.pollLast();
+            }
+            else {
+                if (stack.isEmpty() || stack.peekLast() != '{') {
+                    return false;
+                }
+                stack.pollLast();
+            }
+        }
+        return stack.isEmpty();
+    }
+}
