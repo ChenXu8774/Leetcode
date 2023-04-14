@@ -1,4 +1,5 @@
 class Solution {
+    // TC: O(n^2), SC: O(n^2)
     public String longestPalindrome(String s) {
         int len = s.length();
         int left = 0;
