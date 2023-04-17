@@ -1,4 +1,5 @@
 class Solution {
+    //TC: O(n), SC: O(1)
     public int minFlipsMonoIncr(String s) {
         int leftOne = 0;
         int rightZero = 0;
